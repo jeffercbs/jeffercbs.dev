@@ -1,0 +1,48 @@
+---
+import { GRIDSKILLS, GRADIENTS } from "@/consts";
+import SkillCard from "@components/SkillCard";
+import Icon from "@components/SkillCard/Icon.astro";
+
+const langs = GRIDSKILLS.langs;
+const frameworks = GRIDSKILLS.frameworks;
+const databases = GRIDSKILLS.databases;
+const tools = GRIDSKILLS.tools;
+---
+
+<section class="h-auto py-16 my-8">
+   <div class="grid-container wrapper">
+      <SkillCard tag="langs" color={GRADIENTS[0]}>
+         <div class="flex flex-wrap lg:gap-8 gap-4 text-center">
+            {langs.map((icon) => <Icon {...icon} />)}
+         </div>
+      </SkillCard>
+      <SkillCard tag="frameworks and librarys" color={GRADIENTS[1]}>
+         <div class="flex flex-wrap lg:gap-8 gap-4 text-center">
+            {frameworks.map((icon) => <Icon {...icon} />)}
+         </div>
+      </SkillCard>
+      <SkillCard tag="tools" class="lg:row-span-2" color={GRADIENTS[2]}>
+         <div class="flex flex-wrap lg:gap-8 gap-4 text-center">
+            {tools.map((icon) => <Icon {...icon} />)}
+         </div>
+      </SkillCard>
+      <SkillCard
+         tag="databases and orm"
+         class="lg:col-span-2"
+         color={GRADIENTS[3]}
+      >
+         <div class="flex flex-wrap lg:gap-8 gap-4 text-center">
+            {databases.map((icon) => <Icon {...icon} />)}
+         </div>
+      </SkillCard>
+   </div>
+</section>
+
+<style>
+   .grid-container {
+      @apply grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 h-full min-h-[80vh];
+   }
+   article::hover {
+      animation: shadow-drop-center 0.4s linear both;
+   }
+</style>

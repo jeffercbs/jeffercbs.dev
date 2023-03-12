@@ -1,0 +1,138 @@
+---
+import { Link } from "@/components";
+import { ArrowDownIcon } from "@/components/Icons";
+import SkillGrid from "@/components/SkillGrid.astro";
+import { Image } from "@astrojs/image/components";
+import Avatar from "../assets/jeffercbs.png";
+import CardProject from "../components/CardProject.astro";
+import { PROJECTS } from "../consts";
+import Layout from "../layouts/Layout.astro";
+
+const projectsFilter = PROJECTS.filter(({ home }) => home);
+---
+
+<Layout title="Welcome to Astro.">
+   <section class="intro relative">
+      <div class="content wrapper">
+         <div class="desc flex-1 flex flex-col gap-4">
+            <h1>Jeferson Barrero</h1>
+            <h2>Software enginner</h2>
+            <p class="opacity-80 lg:max-w-[500px]">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+               quo atque obcaecati error non mollitia.
+            </p>
+            <div class="actions wrapper pb-4">
+               <a href="#more" class="lg:mr-8">
+                  <ArrowDownIcon />
+               </a>
+               <Link href="/about" variant="primary" rounded>About me</Link>
+               <Link href="/about" variant="secondary" external rounded>
+                  Download CV
+               </Link>
+            </div>
+         </div>
+         <div class="right">
+            <Image
+               src={Avatar}
+               fit="cover"
+               alt="i am jeferson barrero"
+               class="avatar"
+               width={400}
+               height={420}
+               aspectRatio={2}
+            />
+         </div>
+      </div>
+   </section>
+
+   <SkillGrid />
+
+   <section class="wrapper py-8" id="projects">
+      <div class="my-14">
+         <h1 class="lg:text-7xl">Projects</h1>
+         <p class="opacity-80">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+            aliquid.
+         </p>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-6 md:grid-cols-2 grid-cols-1">
+         {projectsFilter.map((project) => <CardProject {...project} />)}
+      </div>
+      <div class="w-full grid place-items-center py-8 mt-8">
+         <Link href="/projects" variant="primary" rounded>See more</Link>
+      </div>
+   </section>
+
+   <section class="contact" id="contact">
+      <div class="wrapper">
+         <h1 class="lg:text-3xl lg:max-w-[600px]">
+            👋 Do you think we can work together?
+         </h1>
+         <div class="banner">
+            <div class="flex-1">
+               <h2>👋 Do you think we can work together?</h2>
+               <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
+                  aspernatur provident! Vitae ipsum nostrum, quidem aperiam
+                  consequuntur cumque sit explicabo?
+               </p>
+            </div>
+            <div class="grid place-items-center lg:w-4/12 text-center px-8">
+               <Link href="/contact" variant="secondary" rounded class="w-full">
+                  Contact me
+               </Link>
+            </div>
+         </div>
+      </div>
+   </section>
+</Layout>
+
+<style>
+   section {
+      @apply w-full h-auto flex flex-col py-8;
+   }
+   section h1 {
+      @apply font-bold leading-tight uppercase;
+   }
+
+   .intro {
+      @apply text-white justify-center min-h-[100vh];
+      background: url("/grd.jfif") no-repeat;
+      background-size: 35% 100%;
+      background-position: right top;
+   }
+   .intro .content {
+      @apply w-full flex justify-center items-center lg:flex-row flex-col;
+   }
+   .intro .avatar {
+      @apply rounded-3xl shadow-2xl shadow-zinc-800 grayscale;
+   }
+   .intro .desc h1 {
+      @apply lg:text-8xl text-4xl;
+   }
+   .intro .desc h2 {
+      @apply text-2xl font-semibold;
+   }
+   .intro .desc span {
+      @apply text-xl;
+   }
+   .intro .right {
+      @apply w-2/5;
+   }
+   .intro .actions {
+      @apply absolute inset-x-0 bottom-0 flex items-center h-24 gap-4;
+   }
+
+   .more {
+      @apply text-black justify-center items-center;
+      background: var(--stain), #fff;
+   }
+
+   .contact {
+      @apply text-black min-h-[70vh] items-start justify-center;
+      background: var(--stain), #fff;
+   }
+   .contact .banner {
+      @apply flex lg:flex-row flex-col bg-gray-200 px-4 py-8 rounded-md mt-8;
+   }
+</style>

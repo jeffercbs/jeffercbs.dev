@@ -1,0 +1,42 @@
+.header {
+   @apply w-full h-16 text-night fixed inset-0 z-[100];
+}
+.header--scrolled {
+   @apply bg-black shadow-2xl shadow-zinc-800 delay-100;
+   animation: slide-bottom 0.4s linear both;
+}
+.header .container {
+   @apply h-full flex justify-between items-center;
+}
+.links {
+   @apply h-full flex lg:flex-row flex-col justify-between items-center gap-8;
+}
+.link {
+   @apply font-semibold text-base text-gray-200 p-2;
+}
+
+.btn-menu {
+   @apply lg:hidden flex items-center justify-center w-16 h-16;
+}
+.menu {
+   @apply lg:hidden inset-0 absolute z-[100] backdrop-blur-md text-white max-h-[100vh];
+   background: rgba(0, 0, 0, 0.4);
+}
+.menu-container {
+   @apply flex flex-col justify-center items-center w-full h-full;
+}
+.menu--active {
+   @apply flex flex-col;
+   animation: blur-in 0.3s linear both;
+}
+
+@keyframes blur-in {
+   0% {
+      filter: blur(12px);
+      opacity: 0;
+   }
+   100% {
+      filter: blur(0);
+      opacity: 1;
+   }
+}

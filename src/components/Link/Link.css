@@ -1,0 +1,9 @@
+.btn {
+   @apply font-semibold text-lg capitalize text-gray-200 px-4 lg:px-8 py-2  shadow-2xl shadow-gray-600;
+}
+.btn--primary {
+   @apply bg-white text-black;
+}
+.btn--secondary {
+   @apply bg-zinc-800 text-white;
+}
