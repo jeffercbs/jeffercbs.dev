@@ -2,6 +2,7 @@ import { LINKS } from "@/consts";
 import clsx from "clsx";
 import { Fragment } from "preact";
 import { useEffect, useState } from "preact/hooks";
+import { MenuIcon, XIcon } from "../Icons";
 import { Link } from "../Link";
 import "./Header.css";
 import { MenuMobile } from "./MenuMobile";
@@ -21,6 +22,8 @@ export const Header = () => {
 
          if (isMenu) {
             window.document.body.style.overflow = "hidden";
+         } else {
+            window.document.body.style.overflow = "unset";
          }
       }
    }, [isMenu]);
@@ -36,10 +39,10 @@ export const Header = () => {
       <Fragment>
          <header className={headerClass}>
             <div className="container wrapper">
-               <a href="/" className="flex items-center gap-3">
-                  <img src="/logo.jpg" alt="logo" width={50} height={50} />
-                  <span className="uppercase text-white font-semibold">
-                     Jefferbs
+               <a href="/" className="flex items-center">
+                  <img src="/logo.png" alt="logo" width={50} height={50} />
+                  <span className="uppercase text-white font-semibold lg:flex hidden">
+                     efferbs
                   </span>
                </a>
                <nav className="lg:flex hidden">
@@ -60,7 +63,7 @@ export const Header = () => {
                      Newsletter
                   </Link>
                   <button onClick={handledMenu} className="btn-menu">
-                     H
+                     <MenuIcon width={60} />
                   </button>
                </div>
             </div>
@@ -68,7 +71,7 @@ export const Header = () => {
          <div className={menuClass}>
             <div className="w-full flex justify-end">
                <button onClick={handledMenu} className="btn-menu">
-                  H
+                  <XIcon />
                </button>
             </div>
             <MenuMobile />

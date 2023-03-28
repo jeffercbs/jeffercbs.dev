@@ -1,0 +1,45 @@
+---
+import { Image } from "@astrojs/image/components";
+
+export interface Props {
+   tag?: string;
+   elements: {
+      name: string;
+      img: string;
+   }[];
+}
+
+const { tag, elements } = Astro.props;
+---
+
+<article>
+   <div class="p-2 flex flex-col h-full rounded-md px-4">
+      <div class="w-full flex justify-start pb-8">
+         <span class="uppercase font-semibold border-2 rounded-full px-6">
+            {tag}
+         </span>
+      </div>
+      <div class="flex flex-col lg:gap-3 gap-1">
+         {
+            elements.map(({ name, img }) => (
+               <div class="flex rounded-md bg-zinc-800 items-center gap-3 duration-500 px-4 py-2">
+                  <Image
+                     src={img}
+                     format="webp"
+                     alt={name}
+                     width={30}
+                     height={30}
+                  />
+                  <span class="uppercase font-medium text-xs">{name}</span>
+               </div>
+            ))
+         }
+      </div>
+   </div>
+</article>
+
+<style>
+   article {
+      @apply rounded-md duration-500 min-h-[300px] relative;
+   }
+</style>

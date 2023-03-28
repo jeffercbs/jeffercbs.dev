@@ -1,6 +1,6 @@
 export const USER = {
    name: "Jeferson Barrero",
-   title: "Full Stack Developer",
+   cargo: "Software Engineer",
    desc: "I am a full stack developer with 5+ years of experience in web development. I have worked on many projects and have a good understanding of the latest technologies.",
    github: "https://github.com/jeffercbs",
 };
@@ -42,17 +42,17 @@ export const GRIDSKILLS = {
 
 export const PROJECTS = [
    {
-      name: "Project 1",
-      desc: "Project 1 description",
-      img: "/ui.png",
-      link: "https://github.com",
+      name: "clico",
+      desc: "command line utility to make better git commits in your project",
+      img: "grd.jfif",
+      link: "https://github.com/jeffercbs/clico",
       home: true,
    },
    {
-      name: "Project 2",
-      desc: "Project 2 description",
-      img: "https://i.pinimg.com/564x/c4/e7/ef/c4e7ef5f1a8eb7e3acaa2390e580bd0e.jpg",
-      link: "https://github.com",
+      name: "linktree",
+      desc: "A totally free and customizable alternative linktree",
+      img: "https://github.com/jeffercbs/linktree/raw/main/.github/ui.jpeg",
+      link: "https://github.com/jeffercbs/linktree",
       home: true,
    },
    {
@@ -69,11 +69,4 @@ export const PROJECTS = [
       link: "https://github.com",
       home: false,
    },
-];
-
-export const GRADIENTS = [
-   "bg-gradient-to-bl from-transparent via-purple-900 to-violet-700",
-   "bg-gradient-to-tr from-stone-800 via-blue-900 to-cyan-300",
-   "bg-gradient-to-bl from-yellow-100 via-fuchsia-700 to-rose-700",
-   "bg-gradient-to-bl from-green-800 via-cyan-700 to-green-500",
 ];

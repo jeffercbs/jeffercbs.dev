@@ -5,22 +5,20 @@ import SkillGrid from "@/components/SkillGrid.astro";
 import { Image } from "@astrojs/image/components";
 import Avatar from "../assets/jeffercbs.png";
 import CardProject from "../components/CardProject.astro";
-import { PROJECTS } from "../consts";
+import { PROJECTS, USER } from "../consts";
 import Layout from "../layouts/Layout.astro";
 
 const projectsFilter = PROJECTS.filter(({ home }) => home);
+const { name, cargo, desc } = USER;
 ---
 
 <Layout title="Welcome to Astro.">
-   <section class="intro relative">
+   <section class="intro relative" id="home">
       <div class="content wrapper">
          <div class="desc flex-1 flex flex-col gap-4">
-            <h1>Jeferson Barrero</h1>
-            <h2>Software enginner</h2>
-            <p class="opacity-80 lg:max-w-[500px]">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-               quo atque obcaecati error non mollitia.
-            </p>
+            <h1>{name}</h1>
+            <h2>{cargo}</h2>
+            <p class="opacity-80 lg:max-w-[500px]">{desc}</p>
             <div class="actions wrapper pb-4">
                <a href="#more" class="lg:mr-8">
                   <ArrowDownIcon />
@@ -55,7 +53,7 @@ const projectsFilter = PROJECTS.filter(({ home }) => home);
             aliquid.
          </p>
       </div>
-      <div class="grid lg:grid-cols-3 gap-6 md:grid-cols-2 grid-cols-1">
+      <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
          {projectsFilter.map((project) => <CardProject {...project} />)}
       </div>
       <div class="w-full grid place-items-center py-8 mt-8">

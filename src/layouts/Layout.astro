@@ -1,5 +1,5 @@
 ---
-import { Header } from "../components";
+import { Footer, Header, Menu } from "../components";
 
 export interface Props {
    title: string;
@@ -15,7 +15,8 @@ const { title } = Astro.props;
       <meta name="viewport" content="width=device-width" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <meta name="generator" content={Astro.generator} />
-      <title>{title}</title>
+      <title>Jeferson Barrero | Developer, writer, creator | {title}</title>
+      <link rel="canonical" href="https://jeffercbs.vercel.app" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
@@ -25,8 +26,25 @@ const { title } = Astro.props;
    </head>
    <body>
       <main>
+         <div
+            class="fixed inset-x-0 bottom-0 h-9 bg-[#1750fe] grid place-content-center z-[100]"
+         >
+            <span class="flex">
+               <p>🙌 website in development, you can find it at</p>
+               <a
+                  href="http://github.com/jeffercbs/jeffercbs.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mx-4 font-semibold"
+               >
+                  here</a
+               >
+            </span>
+         </div>
          <Header client:visible />
          <slot />
+         <Menu client:load />
+         <Footer />
       </main>
    </body>
 </html>
@@ -52,12 +70,16 @@ const { title } = Astro.props;
    .wrapper {
       @apply lg:max-w-[1150px] max-w-none lg:mx-auto lg:px-0 px-4;
    }
-   @keyframes slide-bottom {
+
+   .menu-bottom {
+      animation: menu-bottom 0.4s linear;
+   }
+   @keyframes menu-bottom {
       0% {
-         transform: translateY(-100px);
+         transform: translateY(100px);
       }
       100% {
-         transform: translateY(0px);
+         transform: translateY(0);
       }
    }
    @keyframes shadow-drop-center {
